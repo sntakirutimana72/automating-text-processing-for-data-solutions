@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootContainer" prefWidth="281.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.automating_text_processing.controller.TextExtractorController">
+   <children>
+     <VBox layoutX="22.0" layoutY="14.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <children>
+          <AnchorPane>
+             <children>
+               <Label alignment="CENTER" contentDisplay="CENTER" text="Text Extractor" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                 <font>
+                   <Font name="System Bold" size="24.0" />
+                 </font>
+               </Label>
+             </children>
+          </AnchorPane>
+          <VBox styleClass="layout">
+             <children>
+               <VBox spacing="10.0">
+                  <children>
+                    <AnchorPane>
+                       <children>
+                         <Label text="Task Scheduler" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                             <Font name="System Bold" size="18.0" />
+                           </font>
+                         </Label>
+                       </children>
+                    </AnchorPane>
+                    <VBox>
+                       <children>
+                         <AnchorPane>
+                            <children>
+                              <Label text="Predefined Search Patterns" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                            </children>
+                         </AnchorPane>
+                         <ListView fx:id="predefinedSearchPatternListView" styleClass="layout" />
+                       </children>
+                    </VBox>
+                    <VBox layoutX="10.0" layoutY="10.0">
+                       <children>
+                         <HBox>
+                            <children>
+                              <AnchorPane HBox.hgrow="ALWAYS">
+                                 <children>
+                                   <Label text="Custom Search Patterns" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </AnchorPane>
+                              <Button mnemonicParsing="false" onAction="#handleNewCustomSearchPattern" text="Add" />
+                            </children>
+                         </HBox>
+                         <ScrollPane>
+                            <content>
+                              <VBox fx:id="customSearchPatternListView" styleClass="layout" />
+                            </content>
+                         </ScrollPane>
+                       </children>
+                    </VBox>
+                    <VBox>
+                       <children>
+                         <HBox>
+                            <children>
+                              <AnchorPane HBox.hgrow="ALWAYS">
+                                 <children>
+                                   <Label text="File Sources" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Button mnemonicParsing="false" onAction="#handleSourcesSelection" text="Select File Sources" />
+                            </children>
+                         </HBox>
+                         <ScrollPane>
+                            <content>
+                              <VBox fx:id="sourcesListView" styleClass="layout" />
+                            </content>
+                         </ScrollPane>
+                       </children>
+                    </VBox>
+                    <Button mnemonicParsing="false" onAction="#handleSubmitTask" text="Process" />
+                  </children>
+               </VBox>
+             </children>
+          </VBox>
+          <VBox spacing="10.0" styleClass="layout">
+             <children>
+               <VBox prefHeight="200.0" prefWidth="100.0">
+                  <children>
+                    <AnchorPane>
+                       <children>
+                         <Label text="Task Monitor" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                             <Font name="System Bold" size="18.0" />
+                           </font>
+                         </Label>
+                       </children>
+                    </AnchorPane>
+                    <ListView prefHeight="200.0" prefWidth="200.0" />
+                  </children>
+               </VBox>
+             </children>
+          </VBox>
+        </children>
+     </VBox>
+   </children>
+</AnchorPane>
