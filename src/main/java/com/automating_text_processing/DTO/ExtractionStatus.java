@@ -5,5 +5,5 @@ public enum ExtractionStatus {
   COMPLETE,
   CANCELLED,
   PARTIAL,
-  FAILED;
+  FAILED
 }

@@ -28,7 +28,6 @@ public class TextExtractorController {
   @FXML private ListView<SearchPatterns> predefinedSearchPatternListView;
   @FXML private VBox customSearchPatternListView;
   @FXML private VBox sourcesListView;
-  @FXML private Label destination;
 
   // Service manager
   TextExtractorService extractorService;

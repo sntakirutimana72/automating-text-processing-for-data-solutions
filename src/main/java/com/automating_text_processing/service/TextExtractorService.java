@@ -130,13 +130,6 @@ public class TextExtractorService extends TextProcessingCoreService {
     }
   }
 
-  private void haltExtractionCleaningFactory() {
-    if (Objects.nonNull(extractionCleaningFactory)) {
-      extractionCleaningFactory.cancel(true);
-      extractionCleaningFactory = null;
-    }
-  }
-
   public void cancelExtractionByBatch(int version) throws ExtractionBatchNotFound {
     List<Future<?>> batch = extractionJobs.get(version);
     if (Objects.isNull(batch)) throw new ExtractionBatchNotFound(version);
