@@ -10,8 +10,8 @@ import java.io.IOException;
 public class AutomatingTextProcessingApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(AutomatingTextProcessingApplication.class.getResource("root.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(AutomatingTextProcessingApplication.class.getResource("editor.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 480, 240);
         stage.setTitle("Automating Text Processing For Dataflows Solutions");
         stage.setScene(scene);
         stage.show();
