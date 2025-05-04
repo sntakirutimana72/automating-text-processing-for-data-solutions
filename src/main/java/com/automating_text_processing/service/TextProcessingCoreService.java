@@ -1,7 +1,7 @@
 package com.automating_text_processing.service;
 
-import com.automating_text_processing.rule.ReadRule;
-import com.automating_text_processing.rule.WriteRule;
+import com.automating_text_processing.DTO.ReadRule;
+import com.automating_text_processing.DTO.WriteRule;
 import com.automating_text_processing.strategy.FileReaderContext;
 
 import java.io.BufferedWriter;
@@ -18,7 +18,7 @@ public abstract class TextProcessingCoreService {
   }
 
   public void write(WriteRule rule) throws IOException {
-    try (BufferedWriter writer = Files.newBufferedWriter(rule.getPath(), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
+    try (BufferedWriter writer = Files.newBufferedWriter(rule.getPath(), StandardCharsets.UTF_8, StandardOpenOption.CREATE, rule.getExtraOpenOption())) {
       while (rule.getReadIterator().hasNext()) {
         writer.write(rule.getReadIterator().next());
         writer.newLine();

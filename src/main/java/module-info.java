@@ -16,6 +16,9 @@ module com.automating_text_processing {
   exports com.automating_text_processing.controller.editor;
   exports com.automating_text_processing.service;
   opens com.automating_text_processing.service to javafx.fxml;
-  exports com.automating_text_processing.rule;
+  exports com.automating_text_processing.DTO;
   exports com.automating_text_processing.function;
+  exports com.automating_text_processing.exception;
+  exports com.automating_text_processing.controller;
+  opens com.automating_text_processing.controller to javafx.fxml;
 }

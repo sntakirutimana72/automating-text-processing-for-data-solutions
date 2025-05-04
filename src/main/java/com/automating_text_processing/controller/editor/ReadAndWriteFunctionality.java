@@ -1,38 +1,26 @@
 package com.automating_text_processing.controller.editor;
 
+import com.automating_text_processing.DTO.EditorWriteRule;
+import com.automating_text_processing.DTO.FilePickerFilterDTO;
+import com.automating_text_processing.controller.FilePicker;
 import com.automating_text_processing.function.RuleConsumer;
 import com.automating_text_processing.logger.Alert;
-import com.automating_text_processing.rule.ReadRule;
-import com.automating_text_processing.rule.WriteRule;
+import com.automating_text_processing.DTO.ReadRule;
+import com.automating_text_processing.DTO.WriteRule;
 import com.automating_text_processing.validator.TextEditorValidator;
-import javafx.stage.DirectoryChooser;
 
 import java.io.File;
 import java.nio.file.FileSystems;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 public class ReadAndWriteFunctionality {
-  private static WriteRule defineWriteRule(String filename, Supplier<Iterator<String>> reader) {
-    WriteRule rule = new WriteRule();
-    rule.setFilename(filename);
-    rule.setReadIterator(reader.get());
-    return rule;
-  }
-
-  private static ReadRule defineReadRule(File file, Consumer<String> consumer) {
-    ReadRule rule = new ReadRule();
-
-    rule.setLineConsumer(consumer);
-    rule.setFilename(file.getAbsolutePath());
-
-    return rule;
-  }
 
   private static String buildSaveAbsolutePath(String name, String currentOpenFilename, Window win) {
     // Check if we have a current open filename
@@ -44,12 +32,8 @@ public class ReadAndWriteFunctionality {
       return name + ".txt";
     // Otherwise, build a file path
     String stem = TextEditorValidator.validateFilenameOnSave(name.trim());
-    // Select location, i.e. where to save your file
-    // Initiate directory chooser
-    DirectoryChooser directoryChooser = new DirectoryChooser();
-    directoryChooser.setTitle("Select Save Location");
     // If no location was selected, abort
-    File location = directoryChooser.showDialog(win);
+    File location = FilePicker.pickLocation("Select save location", (Stage) win);
     if (Objects.isNull(location)) return null;
     // Combine location with given name, and then add suffix
     return location.toPath().resolve(stem + ".txt").toAbsolutePath().toString();
@@ -62,7 +46,7 @@ public class ReadAndWriteFunctionality {
       String filename;
       if ((filename = buildSaveAbsolutePath(name, getOpenFilename.get(), win)) == null) return;
       // Define write rule
-      WriteRule rule = defineWriteRule(filename, reader);
+      WriteRule rule = new EditorWriteRule(filename, reader.get());
 
       // if editor mode isn't overwrite and the absolute path points to an existing file
       if (rule.getPath().toFile().exists() &&
@@ -84,13 +68,12 @@ public class ReadAndWriteFunctionality {
 
   public static void onOpen(Window win, Consumer<String> setName, Consumer<String> setOpenFile,
                             Consumer<String> addLine, RuleConsumer<ReadRule> reader) {
-    FileChooser fileChooser = new FileChooser();
-    fileChooser.setTitle("Open Text File");
-    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
-
-    File file = fileChooser.showOpenDialog(win);
+    File file = FilePicker.pickFile(
+            "Open Text File",
+            List.of(new FilePickerFilterDTO("Text Files", "*.txt")),
+            (Stage) win);
     if (!Objects.isNull(file)) {
-      ReadRule rule = defineReadRule(file, addLine);
+      ReadRule rule = new ReadRule(file.getAbsolutePath(), addLine);
       try {
         reader.accept(rule);
         // Set the original filename

@@ -1,6 +1,6 @@
 package com.automating_text_processing.function;
 
-import com.automating_text_processing.rule.ReadableAndWritable;
+import com.automating_text_processing.DTO.ReadableAndWritable;
 
 import java.io.IOException;
 

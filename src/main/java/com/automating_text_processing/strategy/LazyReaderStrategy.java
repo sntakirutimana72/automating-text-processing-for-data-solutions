@@ -1,6 +1,6 @@
 package com.automating_text_processing.strategy;
 
-import com.automating_text_processing.rule.ReadRule;
+import com.automating_text_processing.DTO.ReadRule;
 
 import java.io.BufferedReader;
 import java.io.IOException;

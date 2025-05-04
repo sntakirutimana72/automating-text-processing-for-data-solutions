@@ -1,6 +1,6 @@
 package com.automating_text_processing.service;
 
-import com.automating_text_processing.rule.EditorFindRule;
+import com.automating_text_processing.DTO.EditorFindRule;
 import com.automating_text_processing.util.WebUtils;
 
 import java.util.concurrent.CompletableFuture;

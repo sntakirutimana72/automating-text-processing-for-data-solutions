@@ -1,4 +1,4 @@
-package com.automating_text_processing.rule;
+package com.automating_text_processing.DTO;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
