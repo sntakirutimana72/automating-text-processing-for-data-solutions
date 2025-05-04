@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.web.*?>
 <?import javafx.scene.layout.*?>
 
 
-<VBox styleClass="layout" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.automating_text_processing.controller.editor.TextEditorController">
-   <children>
-    <fx:include fx:id="editorMenu" source="editor-menu.fxml" />
-      <AnchorPane VBox.vgrow="ALWAYS">
-         <children>
-          <WebView fx:id="webView" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" styleClass="layout" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS" />
-         </children>
-      </AnchorPane>
-   </children>
+<VBox styleClass="layout" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.automating_text_processing.controller.editor.TextEditorController">
+  <fx:include fx:id="editorMenu" source="editor-menu.fxml"/>
+  <AnchorPane VBox.vgrow="ALWAYS">
+    <WebView fx:id="webView" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0"
+             prefWidth="-1.0" styleClass="layout" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS"/>
+  </AnchorPane>
 </VBox>
