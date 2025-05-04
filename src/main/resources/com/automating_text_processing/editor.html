@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 8px;
+      font-family: sans-serif;
+    }
+    #editor {
+      outline: none;
+      font-size: 11px;
+      white-space: pre;
+      min-height: calc(100vh - 16px);
+    }
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+  <title>Text Editor</title>
+</head>
+<body>
+  <div id="editor" contenteditable="true" aria-placeholder="Start Here"></div>
+
+  <script>
+    const editor = document.getElementById('editor');
+
+    function setContent(base64Str) {
+      editor.innerHTML = base64Str;
+    }
+
+    function getContent() {
+      return editor.innerText;
+    }
+
+    function addLine(base64Line) {
+      editor.innerHTML += base64Line + "<br>";
+    }
+  </script>
+</body>
+</html>

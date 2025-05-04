@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="menuRoot" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.automating_text_processing.controller.editor.FunctionalController">
+  <VBox spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+        AnchorPane.topAnchor="5.0">
+    <!-- Functional controls -->
+    <HBox spacing="5.0">
+      <Button onAction="#handleReset" text="New"/>
+      <Button onAction="#handleOpen" text="Open"/>
+      <Button onAction="#handleSave" text="Save"/>
+    </HBox>
+    <HBox spacing="5.0" style="-fx-background-color: #e5e5e5;" styleClass="layout" VBox.vgrow="NEVER">
+      <HBox.margin>
+        <Insets left="20.0"/>
+      </HBox.margin>
+      <AnchorPane>
+        <Label contentDisplay="CENTER" text="Find" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0"
+               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" HBox.hgrow="SOMETIMES"/>
+      </AnchorPane>
+      <TextField fx:id="targetField" promptText="Enter target"/>
+      <TextField fx:id="replacementField" promptText="Enter replacement"/>
+      <AnchorPane>
+        <HBox.margin>
+          <Insets left="5.0" right="10.0"/>
+        </HBox.margin>
+        <CheckBox fx:id="replaceToggler" layoutY="5.0" text="Replace" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+      </AnchorPane>
+      <AnchorPane>
+        <Button fx:id="replaceButton" alignment="CENTER" contentDisplay="CENTER" onAction="#handleReplaceAll"
+                text="Replace All" textAlignment="CENTER"/>
+      </AnchorPane>
+    </HBox>
+    <HBox>
+      <AnchorPane HBox.hgrow="ALWAYS">
+        <TextField fx:id="filenameField" promptText="File Absolute Path" AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+      </AnchorPane>
+      <AnchorPane>
+        <Label styleClass="layout" text="*.txt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0"
+               AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+          <font>
+            <Font name="System Bold" size="13.0"/>
+          </font>
+        </Label>
+      </AnchorPane>
+    </HBox>
+  </VBox>
+</AnchorPane>
